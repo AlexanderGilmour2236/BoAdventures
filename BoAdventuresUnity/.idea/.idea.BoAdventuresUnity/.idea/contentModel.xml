@@ -411,14 +411,16 @@
             <e p="Components" t="Include">
               <e p="KeyDownEvent.cs" t="Include" />
               <e p="KeyPressedEvent.cs" t="Include" />
+              <e p="MoveAnimationComponent.cs" t="Include" />
               <e p="MoveComponent.cs" t="Include" />
               <e p="MoveDirectionComponent.cs" t="Include" />
               <e p="MoveInputListener.cs" t="Include" />
               <e p="PhysicalMoveComponent.cs" t="Include" />
             </e>
             <e p="Systems" t="Include">
+              <e p="CharacterMovementAnimationSystem.cs" t="Include" />
               <e p="FixedMoveSystem.cs" t="Include" />
-              <e p="GameSceneInitSystem.cs" t="Include" />
+              <e p="InitGameSceneSystem.cs" t="Include" />
               <e p="InputToActionsSystem.cs" t="Include" />
               <e p="KeyBoardPlayerInputSystem.cs" t="Include" />
               <e p="MoveSystem.cs" t="Include" />

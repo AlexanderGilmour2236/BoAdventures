@@ -8,5 +8,7 @@ namespace BoAdventures
         public Rigidbody RigidBody;
         public float MaxSpeed;
         public float SmoothStopMovementSpeed;
+        public Animator Animator;
+        public string MoveAnimationBoolName;
     }
 }

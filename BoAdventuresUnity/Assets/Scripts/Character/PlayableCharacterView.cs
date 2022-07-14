@@ -52,47 +52,10 @@ namespace BoAdventures
             _characterData.OnTryFire();
         }
     
-        private void FixedUpdate()
-        {
-            if (_moveDirection.sqrMagnitude > 0)
-            {
-                MoveCharacter(_moveDirection);
-            }
-            else
-            {
-                SmoothStopMovement();
-            }
-        }
-    
-        private void SmoothStopMovement()
-        {
-            _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, _characterAbilitiesData.SmoothStopMovementSpeed);
-        }
-    
-        private void MoveCharacter(Vector3 direction)
-        {
-            _rigidbody.AddForce(direction * _characterAbilitiesData.Speed, ForceMode.VelocityChange);
-            ClampSpeed();
-        }
-    
-        private void ClampSpeed()
-        {
-            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, _characterAbilitiesData.MaxSpeed);
-        }
         
         public CharacterAbilitiesData CharacterAbilitiesData
         {
             get { return _characterAbilitiesData; }
-        }
-    
-        public void TakeDamage()
-        {
-            
-        }
-        
-        public CharacterData CharacterData
-        {
-            get { return _characterData; }
         }
     }
 }

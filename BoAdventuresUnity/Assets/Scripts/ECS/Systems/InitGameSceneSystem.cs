@@ -5,12 +5,13 @@ using Zenject;
 
 namespace BoAdventures
 {
-    public class GameSceneInitSystem : IEcsInitSystem
+    public class InitGameSceneSystem : IEcsInitSystem
     {
         [Inject] private EcsWorld _world;
         [Inject] private EcsPool<PhysicalMoveComponent> _fixedMovablesPool;
         [Inject] private EcsPool<MoveDirectionComponent> _moveDirectionsPool;
         [Inject] private EcsPool<MoveInputListener> _moveInputListenersPool;
+        [Inject] private EcsPool<MoveAnimationComponent> _moveAnimationsPool;
 
         public void Init(EcsSystems systems)
         {                        
@@ -22,6 +23,10 @@ namespace BoAdventures
             moveComponent.MoveSpeed = characterGo.MoveSpeed;
             moveComponent.MaxSpeed = characterGo.MaxSpeed;
             moveComponent.SmoothStopMovementSpeed = characterGo.SmoothStopMovementSpeed;
+            
+            ref MoveAnimationComponent moveAnimationComponent = ref _moveAnimationsPool.Add(playerCharacterEntity);
+            moveAnimationComponent.Animator = characterGo.Animator;
+            moveAnimationComponent.MoveAnimationBoolName = characterGo.MoveAnimationBoolName;
             
             _moveDirectionsPool.Add(playerCharacterEntity);
             _moveInputListenersPool.Add(playerCharacterEntity);

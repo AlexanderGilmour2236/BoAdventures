@@ -11,11 +11,12 @@ public class GameSceneLoader : MonoBehaviour
     
     [Inject] private EcsWorld _gameWorld;
 
-    [Inject] private GameSceneInitSystem _gameSceneInitSystem;
+    [Inject] private InitGameSceneSystem _initGameSceneSystem;
     [Inject] private KeyBoardPlayerInputSystem _keyBoardPlayerInputSystem;
     [Inject] private InputToActionsSystem _inputToActionsSystem;
     [Inject] private MoveSystem _moveSystem;
     [Inject] private FixedMoveSystem _fixedMoveSystem;
+    [Inject] private CharacterMovementAnimationSystem _characterMovementAnimationSystem;
 
     private void Start()
     {
@@ -23,13 +24,16 @@ public class GameSceneLoader : MonoBehaviour
         _fixedSystems = new EcsSystems(_gameWorld);
         
         // add input systems
-        _systems.Add(_gameSceneInitSystem);
+        _systems.Add(_initGameSceneSystem);
         _systems.Add(_keyBoardPlayerInputSystem);
         _systems.Add(_inputToActionsSystem);
 
         // add move systems
         _systems.Add(_moveSystem);
         _fixedSystems.Add(_fixedMoveSystem);
+        
+        // add animations systems
+        _systems.Add(_characterMovementAnimationSystem);
 
         _systems.DelHere<KeyPressedEvent>();
         _systems.DelHere<KeyDownEvent>();

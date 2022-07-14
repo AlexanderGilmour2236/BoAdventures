@@ -20,12 +20,14 @@ public class GameSceneInstaller : MonoInstaller
       BindPool<KeyDownEvent>();
       BindPool<KeyPressedEvent>();
       BindPool<MoveInputListener>();
+      BindPool<MoveAnimationComponent>();
 
-      Container.Bind<GameSceneInitSystem>().AsSingle().NonLazy();
+      Container.Bind<InitGameSceneSystem>().AsSingle().NonLazy();
       Container.Bind<InputToActionsSystem>().AsSingle().NonLazy();
       Container.Bind<KeyBoardPlayerInputSystem>().AsSingle().NonLazy();
       Container.Bind<MoveSystem>().AsSingle().NonLazy();
       Container.Bind<FixedMoveSystem>().AsSingle().NonLazy();
+      Container.Bind<CharacterMovementAnimationSystem>().AsSingle().NonLazy();
    }
 
    private void BindPool<T>() where T : struct

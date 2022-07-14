@@ -671,6 +671,8 @@ MonoBehaviour:
   RigidBody: {fileID: 680482745}
   MaxSpeed: 4
   SmoothStopMovementSpeed: 0.2
+  Animator: {fileID: 680482748}
+  MoveAnimationBoolName: CharacterMove
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
